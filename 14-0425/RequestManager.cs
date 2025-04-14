@@ -8,19 +8,27 @@ namespace _14_0425
 {
     internal class RequestManager
     {
-        public List<FileRequest> Requests = new List<FileRequest>();
         
+        public HashSet<string> FileRequests = new HashSet<string>();
+        public Queue<FileRequest> Queue = new Queue<FileRequest>();
         public RequestManager()
         {
 
         }
         public void Add(FileRequest req)
         {
-            if (!Requests.Contains(req))
+            if (FileRequests.Add(req.Name))
             {
-                Requests.Add(req);  
+                Queue.Enqueue(req);
             }
-            
+               
+        }
+        public void Show()
+        {
+            foreach(var req in Queue)
+            {
+                Console.WriteLine($"Обработка на файл: {req.Name}");
+            }
         }
     }
 }

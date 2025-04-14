@@ -4,7 +4,14 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            int n = int.Parse(Console.ReadLine());
+            RequestManager rq = new RequestManager();
+            for(int i = 0; i < n; i++)
+            {
+                rq.Add(new FileRequest(Console.ReadLine()));    
+
+            }
+            rq.Show();
         }
     }
 }

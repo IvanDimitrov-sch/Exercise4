@@ -11,7 +11,7 @@ namespace _14_0425
         
         public string Name { get; set; }
         //public string Description { get; set; }
-        public FileRequest(string name, string description)
+        public FileRequest(string name)
         {
             Name = name;
             //Description = description;
